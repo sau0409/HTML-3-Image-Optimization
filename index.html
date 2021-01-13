@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Optimization 3</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <main>
+        <h1>HTML optimization (picture element).</h1>
+
+        <div class="info_cont">
+            <h4>We use HTML srcset attribute inside picyure element to provide different images for diffrent widths.</h4>
+            <ul>
+                <li>min-width: 900px (device) || Image width= 1x:1024px 2x:2048px 3x:3072px</li>
+                <li>min-width: 700px (device) || Image width= 1x:800px 2x:1600px 3x:2400px</li>
+                <li>max-width: 700px (device) || Image width= 1x:430px 2x:860px 3x:1290px</li>
+            </ul>
+            <h2>We can resize the window to see the images chnaging according to break points.</h2>
+        </div>
+
+        <section>
+            <h5>Banner/Hero image with 100% width of viewport.</h5>
+            <div class="hero">
+                <picture>
+                    <source media="(min-width: 900px)" srcset="./images/hero-16B9@1024W.jpg 1024w,
+                                     ./images/hero-16B9@2048W.jpg 2048w,
+                                     ./images/hero-16B9@3072W.jpg 3072w" />
+                    <source media="(min-width: 700px)" srcset="./images/hero-5B4@800W.jpg 800w,
+                                     ./images/hero-5B4@1600W.jpg 1600w,
+                                     ./images/hero-5B4@2400W.jpg 2400w" />
+                    <source srcset="./images/hero-sq@430W.jpg 430w,
+                                     ./images/hero-sq@860W.jpg 860w,
+                                     ./images/hero-sq@1290W.jpg 1290w" />
+                    <img class="hero__img" alt="apple hero banner" src="./images/hero@6000.jpg" />
+                </picture>
+            </div>
+            <h5>Content image with 50% width of viewport. For devices width greater than 600px</h5>
+            <h5>And for rest devices 100% width of viewport.</h5>
+            <div class="description">
+                <div class="desc__image_cont">
+                    <img class="desc__img" alt="apple" src="./images/img@6000.jpg" srcset="
+                               ./images/img@6000.webp 6000w,
+                               ./images/img@2400.webp 2400w,
+                               ./images/img@1920.webp 1920w,
+                               ./images/img@640.webp 640w,
+                               ./images/img@6000.jpg 6000w,
+                               ./images/img@2400.jpg 2400w,
+                               ./images/img@1920.jpg 1920w,
+                               ./images/img@640.jpg 640w" sizes="(min-width: 640px) 50vw, 
+                                100vw" />
+                </div>
+                <div class="desc_text">
+                    <h4>Apple</h4>
+                    <p>An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are
+                        cultivated worldwide and are the most widely grown species in the genus Malus. The tree
+                        originated in Central Asia, where its wild ancestor, Malus sieversii, is still found today.
+                        Apples have been grown for thousands of years in Asia and Europe and were brought to North
+                        America by European colonists. Apples have religious and mythological significance in many
+                        cultures, including Norse, Greek, and European Christian tradition.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
